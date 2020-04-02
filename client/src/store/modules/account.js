@@ -11,14 +11,23 @@ const getters = {}
 const actions = {
   getUserInfo({ commit }) {
     account.getUserInfo().then((result)=>{
-      console.log(result.data);
       commit('setUserInfo', result.data)
     });
   },
 
-  signIn({ commit }, info, callback) {
+  signIn({ commit, dispatch }, info, callback) {
     account.signIn(info).then(result => {
-      commit('setUserInfo', result.data)
+      commit('setUserInfo', result.data);
+      // dispatch('getUserInfo');
+    }).catch(err => {
+      console.log(err)
+    })
+  },
+
+  signUp({ commit, dispatch }, info, callback) {
+    account.signUp(info).then(result => {
+      commit('setUserInfo', result.data);
+      // dispatch('getUserInfo');
     }).catch(err => {
       console.log(err)
     })

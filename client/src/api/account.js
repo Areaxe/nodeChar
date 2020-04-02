@@ -7,8 +7,10 @@ export default {
   },
   signIn: function (data) {
     const url = `${server}/signIn`
-    return Vue.axios.post(url, {
-      data,
-    })
+    return Vue.axios.post(url, data)
+  },
+  signUp: function (data) {
+    const url = `${server}/register`
+    return Vue.axios.post(url, data)
   }
 }
