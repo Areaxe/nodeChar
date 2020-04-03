@@ -13,32 +13,31 @@
 </template>
 
 <script>
-
 export default {
-  name: "SignUp",
+  name: 'SignUp',
   data() {
     return {
       formData: {
-        username: "",
-        password: ""
+        username: '',
+        password: ''
       }
-    };
+    }
   },
 
   methods: {
     onSubmit: function(e) {
-      this.$store.dispatch("account/signUp", { ...this.formData });
+      this.$store.dispatch('account/signUp', { ...this.formData })
     }
   },
   directives: {
     focus: {
       // 指令的定义
       inserted: function(el) {
-        el.focus();
+        el.focus()
       }
     }
   }
-};
+}
 </script>
 
 <style scoped>

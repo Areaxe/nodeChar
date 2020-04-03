@@ -1,16 +1,16 @@
 
-const mysql = require('mysql');
-const mysqlConfig = require('../config/db');
-
-let db = mysql.createConnection(mysqlConfig);
+const getConnection = require('./index');
+let db = getConnection();
 
 // function addConsume() {
 
 // }
 
 function getUserInfo(params) {
+    const query = `select * from user where name = '${params.name}'`;
+
     return new Promise((resolve, reject) => {
-        db.query(`select * from user where name = '${params.name}'`, (err, data) => {
+        db.query(query, (err, data) => {
             if (err) {
                 reject({ code: 400, error: err })
             } else if (data) {
@@ -25,8 +25,10 @@ function getUserInfo(params) {
 }
 
 function addUser(data) {
+    const query = `insert into user (name,password) values ('${data.username}','${data.password}')`;
+
     return new Promise((resolve, reject) => {
-        db.query(`insert into user (name,password) values ('${data.username}','${data.password}')`, (err, data) => {
+        db.query(query, (err, data) => {
             if (err) {
                 reject({ code: 400, error: err })
             } else if (data) {

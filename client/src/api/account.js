@@ -12,5 +12,9 @@ export default {
   signUp: function (data) {
     const url = `${server}/register`
     return Vue.axios.post(url, data)
-  }
+  },
+  signOut: function (data) {
+    const url = `${server}/session`
+    return Vue.axios.delete(url)
+  },
 }
