@@ -12,33 +12,33 @@
 </template>
 
 <script>
-import { mapState } from "vuex";
+import { mapState } from 'vuex'
 export default {
-  name: "Header",
+  name: 'Header',
   computed: mapState({
     userInfo: state => (state.account && state.account.userInfo) || {},
     isLogin: state => {
-      return state.account && state.account.userInfo.name;
+      return state.account && state.account.userInfo.name
     }
   }),
 
   methods: {
     signOut: function(e) {
-      this.$store.dispatch("account/signOut");
+      this.$store.dispatch('account/signOut')
     },
     toSignIn: function(e) {
-      this.$router.push("/sign_in");
+      this.$router.push('/sign_in')
     }
   },
   directives: {
     focus: {
       // 指令的定义
       inserted: function(el) {
-        el.focus();
+        el.focus()
       }
     }
   }
-};
+}
 </script>
 
 <style scoped>

@@ -2,36 +2,39 @@
   <div id="app">
     <AppHeader></AppHeader>
     <router-view />
+    <AppFooter></AppFooter>
   </div>
 </template>
 
 <script>
-import AppHeader from "@/mixinComponents/Header/Header";
-import { mapState } from "vuex";
+import AppHeader from '@/mixinComponents/Header/Header'
+import AppFooter from '@/mixinComponents/Footer/Footer'
+import { mapState } from 'vuex'
 export default {
-  name: "App",
+  name: 'App',
   components: {
-    AppHeader
+    AppHeader,
+    AppFooter
   },
   created() {
     if (!this.isLogin) {
-      this.$store.dispatch("account/getUserInfo", (err, data) => {
-        console.log("0000000");
+      this.$store.dispatch('account/getUserInfo', (err, data) => {
+        console.log('0000000')
         if (!err) {
-          localStorage.setItem("islogin", true);
+          localStorage.setItem('islogin', true)
         }
-      });
+      })
     }
   },
   computed: mapState({
     isLogin: state => state.account && state.account.userInfo.name
   })
-};
+}
 </script>
 
 <style>
 #app {
-  font-family: "Avenir", Helvetica, Arial, sans-serif;
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;

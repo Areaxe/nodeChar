@@ -9,19 +9,19 @@ import 'mint-ui/lib/style.css'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
 
-router.beforeEach((to, from, next) => {
-  let islogin = localStorage.getItem("isLogin");
-  console.log(islogin)
+axios.defaults.withCredentials = true
 
-  if (to.path === "/sign_in") {
-    next();
+router.beforeEach((to, from, next) => {
+  let islogin = localStorage.getItem('isLogin')
+
+  if (to.path === '/sign_in') {
+    next()
   } else {
     if (to.meta.requireAuth) {
-
       if (islogin) {
-        next();
+        next()
       } else {
-        next("/sign_in");
+        next('/sign_in')
       }
 
     } else {

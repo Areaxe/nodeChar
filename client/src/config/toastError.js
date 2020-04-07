@@ -18,9 +18,9 @@ function toastError(error = {}, errorMap = {}) {
   //   Toast('Name invalid')
   // }
   Object.keys(error).forEach(key => {
-    let value = error[key];
+    let value = error[key]
     if (errorMap[key] && errorMap[key][value]) {
-      Toast(errorMap[key][value]);
+      Toast(errorMap[key][value])
     }
   })
 }

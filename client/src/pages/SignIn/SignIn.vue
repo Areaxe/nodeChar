@@ -16,38 +16,40 @@
 // import { Field, Button } from 'mint-ui'
 // import { mapState, mapActions } from 'vuex'
 export default {
-  name: "SignIn",
+  name: 'SignIn',
   data() {
     return {
       formData: {
-        username: "",
-        password: ""
+        username: '',
+        password: ''
       }
-    };
+    }
   },
 
   methods: {
     onSubmit: function(e) {
-      this.$store.dispatch("account/signIn", {
+      this.$store.dispatch('account/signIn', {
         data: this.formData,
         callback: (err, data) => {
           if (!err) {
-            this.$router.push("/").catch(err => { console.log(err) });
+            this.$router.push('/').catch(err => {
+              console.log(err)
+            })
             // this.$router.push({ path: '/' })
           }
         }
-      });
+      })
     }
   },
   directives: {
     focus: {
       // 指令的定义
       inserted: function(el) {
-        el.focus();
+        el.focus()
       }
     }
   }
-};
+}
 </script>
 
 <style scoped>
