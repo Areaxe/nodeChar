@@ -19,7 +19,6 @@ export default {
   created() {
     if (!this.isLogin) {
       this.$store.dispatch('account/getUserInfo', (err, data) => {
-        console.log('0000000')
         if (!err) {
           localStorage.setItem('islogin', true)
         }

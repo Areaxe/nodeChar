@@ -1,0 +1,17 @@
+{
+    "git.ignoreLimitWarning": true,
+    "vetur.format.defaultFormatterOptions": {
+        "js-beautify-html": {
+            "wrap_attributes": "force-aligned"
+        },
+        "prettier": {
+          "tabWidth": 2,
+          "semi": false,
+          "singleQuote": true,
+          "eslintIntegration": true
+        }
+    },
+    "editor.tabSize": 2,
+    "vetur.format.options.tabSize": 2,
+    "vetur.format.options.useTabs": false
+}

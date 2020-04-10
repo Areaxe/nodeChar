@@ -5,7 +5,6 @@
             <router-link to="/sign_up" class="sign-up">Sign Up</router-link>
         </div>
         <div v-else>
-            <div>qqqq</div>
             <flow-item v-for="flow in flows" :key="flow.period" :info="flow"></flow-item>
         </div>
     </div>

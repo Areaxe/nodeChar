@@ -8,8 +8,10 @@ import Mint from 'mint-ui'
 import 'mint-ui/lib/style.css'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
+import promise from 'es6-promise'
 
 axios.defaults.withCredentials = true
+promise.polyfill()
 
 router.beforeEach((to, from, next) => {
   let islogin = localStorage.getItem('isLogin')
@@ -23,7 +25,6 @@ router.beforeEach((to, from, next) => {
       } else {
         next('/sign_in')
       }
-
     } else {
       next()
     }

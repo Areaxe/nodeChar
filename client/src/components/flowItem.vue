@@ -1,19 +1,18 @@
 <template>
   <div class="flow-item">
     <div></div>
-    <div>
-      <p>{{info.title}}</p>
-      <p>{{info.lastest.name+''+info.lastest.amount}}</p>
+    <div class="flow-name">
+      <p class="name">{{info.title}}</p>
+      <p class="sub-title">{{info.lastest.name+''+info.lastest.amount}}</p>
     </div>
-    <div>
-      <p>{{info.expense}}</p>
-      <p>{{info.earn}}</p>
+    <div class="amount">
+      <p class="expense">{{info.expense}}</p>
+      <p class="earn">{{info.earn}}</p>
     </div>
   </div>
 </template>
 
 <script>
-import { mapState } from 'vuex'
 export default {
   name: 'flowItem',
   data() {
@@ -21,31 +20,42 @@ export default {
   },
   props: {
     info: { type: Object, default: () => ({ lastest: {} }) }
-  },
-  created() {
-    console.log(this)
-  },
-  computed: mapState({
-    isLogin: state => state.account && state.account.userInfo.name
-  })
+  }
 }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-.home-page {
+.flow-item {
   text-align: center;
+  display: flex;
+  flex-direction: row;
+  border-bottom: solid 1px #f5f5f5;
+  padding: 5px;
 }
-.sign-in,
-.sign-up {
-  display: inline-block;
-  width: 30vw;
-  height: 30vw;
-  margin: 1rem;
-  border-radius: 0.5rem;
-  line-height: 30vw;
-  background: lightcoral;
-  color: #fff;
-  text-decoration: none;
+.flow-item p{
+  margin: 0px;
+  line-height: 1.3rem;
+}
+.flow-name{
+  width: 60%;
+  text-align: left;
+}
+.amount{
+  width: 25%;
+}
+.expense{
+  color: orangered;
+  font-size: 12px;
+}
+.earn{
+  color: green;
+  font-size: 12px;
+}
+.sub-title{
+  color: #ccc;
+}
+.name {
+  color: #666;
 }
 </style>
